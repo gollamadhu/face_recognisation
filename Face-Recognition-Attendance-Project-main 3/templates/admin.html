@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <title>Admin Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- Update the input field to store the selected date -->
+<input type="hidden" id="selectedDate" name="selected_date" value="{{ request.args.get('date', '') }}">
+
+<!-- Update the datepicker onSelect function to set the hidden input value -->
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            dateFormat: 'yy-mm-dd',
+            onSelect: function (dateText, inst) {
+                    $(this).val(dateText);
+                    window.location.href = "{{ url_for('admin') }}?date=" + dateText;
+                }
+        });
+    });
+</script>
+</head>
+<body>
+    <div class="admin-container">
+        <h1 class="welcome-message">Welcome, {{ username }}!</h1>
+        <div class="controls-container">
+            <label for="datepicker">Select Date:</label>
+            <input type="text" id="datepicker" readonly value="{{ request.args.get('date', '') }}">
+
+            <a href="{{ url_for('individual_percentage') }}">Attendance Percentage</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+        {% if attendance_data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in attendance_data %}
+                    <tr>
+                        <td>{{ entry[0] }}</td>
+                        <td>{{ entry[1] }}</td>
+                        <td>{{ entry[2] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No Records Found</p>
+        {% endif %}
+       
+    </div>
+</body>
+</html>

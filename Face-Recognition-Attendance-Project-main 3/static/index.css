@@ -1,0 +1,83 @@
+
+body {
+	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+}
+
+
+img {
+    display: block;
+    margin: 20px auto;
+    border: 8px solid #605959;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    height:800px;
+    width:800px
+}
+
+
+
+#webcam-feed {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+body, h1, h2, p, form {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 40px;
+    color: #241b1b;
+    font-family:times 'Times New Roman', Times, serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
